@@ -620,7 +620,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8112188, y: 0.9327779}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -35.25714, y: 0.025512695}
+  m_AnchoredPosition: {x: -35.257507, y: 0.025512695}
   m_SizeDelta: {x: -0.0067139, y: -0.050858}
   m_Pivot: {x: 0.52, y: 0.5}
 --- !u!114 &241862224
@@ -1143,18 +1143,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1546474982}
-        m_TargetAssemblyTypeName: Sound1, Assembly-CSharp
-        m_MethodName: SoundPlay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1284246999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1328,24 +1316,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1546474978 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1546961150970349426, guid: f573a7726a7f79742b787bb16efb3866,
-    type: 3}
-  m_PrefabInstance: {fileID: 1268954195084481174}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1546474982 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8391572056169758800, guid: f573a7726a7f79742b787bb16efb3866,
-    type: 3}
-  m_PrefabInstance: {fileID: 1268954195084481174}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546474978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcef099391d1f3141b767d3a626123e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1572004404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,19 +1642,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 8391572056169758800, guid: f573a7726a7f79742b787bb16efb3866,
-          type: 3}
-        m_TargetAssemblyTypeName: SoundPlayer, Assembly-CSharp
-        m_MethodName: Sound_off_on
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1663632883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1736,7 +1693,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b44e97fdc762c41a4ef1f3e0287748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicObject: {fileID: 1546474978}
   imageToChange: {fileID: 1663632883}
   spriteOn: {fileID: 2957206565592667373, guid: 9bdb0140a05273b4fa5199bc1d9ba12b,
     type: 3}
@@ -1905,6 +1861,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 1546961150970349426, guid: f573a7726a7f79742b787bb16efb3866,
+        type: 3}
+      propertyPath: m_TagString
+      value: Sound_off_on
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

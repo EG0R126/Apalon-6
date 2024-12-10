@@ -47,12 +47,13 @@ public class SoundPlayer : MonoBehaviour
     {
         if (GlobalData.GlobalDataCarrier.StateMusiic)
         {
-            audioSource.Stop();
+            audioSource.enabled = false;
+            Debug.Log("Выключен");
         }
         else
         {
             Debug.Log("Включён");
-            audioSource.Play();
+            audioSource.enabled = true;
         }
     }
 
@@ -80,26 +81,26 @@ public class SoundPlayer : MonoBehaviour
 
     private IEnumerator FadeInMusic(AudioClip clip)
     {
-        // Постепенное включение музыки
-        float startVolume = 0f;
-        audioSource.clip = clip;
-        audioSource.Play();
-        while (audioSource.volume < 1)
-        {
-            audioSource.volume += UnityEngine.Time.deltaTime / fadeDuration;
-            yield return null;
-        }
+            // Постепенное включение музыки
+            float startVolume = 0f;
+            audioSource.clip = clip;
+            audioSource.Play();
+            while (audioSource.volume < 1)
+            {
+                audioSource.volume += UnityEngine.Time.deltaTime / fadeDuration;
+                yield return null;
+            }
     }
 
     private IEnumerator FadeOutMusic()
     {
-        // Постепенное выключение музыки
-        while (audioSource.volume > 0)
-        {
-            audioSource.volume -= UnityEngine.Time.deltaTime / fadeDuration;
-            yield return null;
-        }
-        audioSource.Stop();
+            // Постепенное выключение музыки
+            while (audioSource.volume > 0)
+            {
+                audioSource.volume -= UnityEngine.Time.deltaTime / fadeDuration;
+                yield return null;
+            }
+            audioSource.Stop();
     }
 
     public void PlaySound()

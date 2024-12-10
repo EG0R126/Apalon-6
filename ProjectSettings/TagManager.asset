@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Platform
   - Particles
+  - ButtonSound
+  - Background
+  - Sound_off_on
   layers:
   - Default
   - TransparentFX
