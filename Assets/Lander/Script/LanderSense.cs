@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.Audio;
 
 
 
@@ -28,7 +29,10 @@ public class LanderSense : MonoBehaviour
 
     void Start()
     {
+        AudioSource audioSource = GetComponent<AudioSource>();
+
         InvokeRepeating("DecreaseVariable", 0.5f, 0.5f);
+
     }
 
     void DecreaseVariable()
@@ -53,16 +57,23 @@ public class LanderSense : MonoBehaviour
             Chrashed = true;
             GlobalData.GlobalDataCarrier.isCrashed = true;
 
+            CrashVoice.Play();
+
         }
         else if (col.gameObject.CompareTag("Platform"))
         {
-            
-            Landed = true;
-            Chrashed = true;                
+            if (!Landed)
+            {
+                LostVoice.Play();
+                Landed = true;
+                Chrashed = true;
+            }          
         } 
         else if (col.gameObject.CompareTag("Background"))
         {    
             Lost = true;
+
+            Break.Play();
         }
     }
 }

@@ -207,7 +207,6 @@ public class LevelSelection : MonoBehaviour
             case (2):
                 if (GlobalData.GlobalDataCarrier.Level == 2 || GlobalData.GlobalDataCarrier.Level >= 2)
                 {
-                    image.sprite = sprites[0];
                     SceneManager.LoadScene("Lander2");
                     GlobalData.GlobalDataCarrier.FirstRun = true;
                     GlobalData.GlobalDataCarrier.Score = 0;

@@ -20,7 +20,6 @@ public class TimeOut : MonoBehaviour
     private bool Chrashed;
     private bool Landed;
     private bool Lost;
-    private bool Runnings;
     public AudioSource LandedVoice;
     private string fileName = "level.txt";
 
@@ -68,7 +67,6 @@ public class TimeOut : MonoBehaviour
         Chrashed = false;
         Landed = false;
         Lost = false;
-        Runnings = false;
 
         panel.SetActive(false);
         Button btn = Restart_button.GetComponent<Button>();
@@ -85,10 +83,6 @@ public class TimeOut : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Manu_Scene");
-        if (GlobalData.GlobalDataCarrier.HighScore < GlobalData.GlobalDataCarrier.Score)
-        {
-            GlobalData.GlobalDataCarrier.HighScore = GlobalData.GlobalDataCarrier.Score;
-        }
         GlobalData.GlobalDataCarrier.LandedLeft = false;
         GlobalData.GlobalDataCarrier.LandedRight = false;
         Script2ToAccess.Landed = false;
@@ -281,11 +275,7 @@ public class TimeOut : MonoBehaviour
 
         Time.timeScale = 1f;
         if (GameOver)
-        {
-            if (GlobalData.GlobalDataCarrier.HighScore < GlobalData.GlobalDataCarrier.Score)
-            {
-                GlobalData.GlobalDataCarrier.HighScore = GlobalData.GlobalDataCarrier.Score;
-            }            
+        {           
             GlobalData.GlobalDataCarrier.LandedLeft = false;
             GlobalData.GlobalDataCarrier.LandedRight = false;
             Script2ToAccess.Landed = false;

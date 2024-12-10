@@ -11,18 +11,12 @@ public class GlobalData : MonoBehaviour {
             
     }
 
-    void Update()
-    {
-        HighScoreText.text = ("Рекорд:" + GlobalData.GlobalDataCarrier.HighScore.ToString());
-        
-    }
 
     public static class GlobalDataCarrier
     {
         public static int Score;
         public static int Lives;
         public static int Level;
-        public static int HighScore;
         public static float Fuel;
         public static bool FirstRun;
         public static bool isCrashed;

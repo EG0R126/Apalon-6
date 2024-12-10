@@ -35,9 +35,6 @@ public class StartScene : MonoBehaviour
             FileStream fStream = File.Open(Application.persistentDataPath + "/game.dat", FileMode.Open);
             SaveManager saver = (SaveManager)binary.Deserialize(fStream);
             fStream.Close();
-
-            GlobalData.GlobalDataCarrier.HighScore = saver.HighScore;
-
         }
     }
 
@@ -46,7 +43,6 @@ public class StartScene : MonoBehaviour
         BinaryFormatter binary = new BinaryFormatter();
         FileStream fStream = File.Create(Application.persistentDataPath + "/game.dat");
         SaveManager saver = new SaveManager();
-        saver.HighScore = GlobalData.GlobalDataCarrier.HighScore;
 
         binary.Serialize(fStream, saver);
         fStream.Close();

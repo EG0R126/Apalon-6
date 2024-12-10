@@ -12,7 +12,6 @@ public class PlayerControl : MonoBehaviour
     public float Activetorque = 0.0f;
     public float timeRemaining;
     public Text FuelText;
-    public Text ScoreText;
     public Text TimeText;
     public Text VelocityText;
     public Text LevelText;
@@ -119,7 +118,7 @@ public class PlayerControl : MonoBehaviour
 
     void UpdateFuelText()
     {
-        FuelText.text = ("Топлива: " + Math.Round(GlobalData.GlobalDataCarrier.Fuel).ToString() + " Литр");
+        FuelText.text = ("Топлива: " + Math.Round(GlobalData.GlobalDataCarrier.Fuel).ToString() + " л");
     }
 
     void UpdateTimeText()

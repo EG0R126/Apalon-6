@@ -82,7 +82,6 @@ public class SoundPlayer : MonoBehaviour
     private IEnumerator FadeInMusic(AudioClip clip)
     {
             // Постепенное включение музыки
-            float startVolume = 0f;
             audioSource.clip = clip;
             audioSource.Play();
             while (audioSource.volume < 1)
