@@ -125,7 +125,7 @@ public class TimeOut : MonoBehaviour
         {
             panel.SetActive(true);
 
-            StatusText.text = ("Вы слишком сильно приземлились на платформе");
+            StatusText.text = ("Поломка на платформе");
             GlobalData.GlobalDataCarrier.LandedLeft = false;
             GlobalData.GlobalDataCarrier.LandedRight = false;
           
@@ -175,36 +175,45 @@ public class TimeOut : MonoBehaviour
 
     void CheckRunningsExec()
     {
-        if (GlobalData.GlobalDataCarrier.Fuel == 0 || GlobalData.GlobalDataCarrier.Fuel < 0)
+        if (!GlobalData.GlobalDataCarrier.LandedStatusOk)
         {
-            panel.SetActive(true);
+            if (GlobalData.GlobalDataCarrier.Fuel == 0 || GlobalData.GlobalDataCarrier.Fuel < 0)
+            {
+                panel.SetActive(true);
 
-            StatusText.text = ("Хьюстон мы без топлива");
-            StartCoroutine(PauseExecution(5f, 0.3f, true));
+                StatusText.text = ("Хьюстон мы без топлива");
+                StartCoroutine(PauseExecution(5f, 0.3f, true));
+            }
         }
     }
 
 
     void CheckCrashExec()
     {
-        Chrashed = Script2ToAccess.Chrashed;
-        if (Chrashed & !Landed)
+        if (!GlobalData.GlobalDataCarrier.LandedStatusOk)
         {
-            panel.SetActive(true);
+            Chrashed = Script2ToAccess.Chrashed;
+            if (Chrashed & !Landed)
+            {
+                panel.SetActive(true);
 
-            StatusText.text = ("Хьюстон мы разбились");
-            StartCoroutine(PauseExecution(5f, 0.3f, true));
+                StatusText.text = ("Хьюстон мы разбились");
+                StartCoroutine(PauseExecution(5f, 0.3f, true));
+            }
         }
     }
     void CheckLostExec()
     {
-        Lost = Script2ToAccess.Lost;
-        if (Lost)
+        if (!GlobalData.GlobalDataCarrier.LandedStatusOk)
         {
-            panel.SetActive(true);
+            Lost = Script2ToAccess.Lost;
+            if (Lost)
+            {
+                panel.SetActive(true);
 
-            StatusText.text = ("Хьюстон мы отправились в космом");
-            StartCoroutine(PauseExecution(5f, 0f, true));
+                StatusText.text = ("Хьюстон мы отправились в космом");
+                StartCoroutine(PauseExecution(5f, 0f, true));
+            }
         }
     }
 
@@ -219,11 +228,11 @@ public class TimeOut : MonoBehaviour
         {
             case (1):
                 SceneManager.LoadScene("Lander1");
-                GlobalData.GlobalDataCarrier.Fuel = 1500f;
+                GlobalData.GlobalDataCarrier.Fuel = 1500.0f;
                 break;
             case (2):
                 SceneManager.LoadScene("Lander2");
-                GlobalData.GlobalDataCarrier.Fuel = 600f;
+                GlobalData.GlobalDataCarrier.Fuel = 600.0f;
                 break;
             case (3):
                 SceneManager.LoadScene("Lander3");
@@ -235,11 +244,11 @@ public class TimeOut : MonoBehaviour
                 break;
             case (5):
                 SceneManager.LoadScene("Lander5");
-                GlobalData.GlobalDataCarrier.Fuel = 500.0f;
+                GlobalData.GlobalDataCarrier.Fuel = 400.0f;
                 break;
             case (6):
                 SceneManager.LoadScene("Lander6");
-                GlobalData.GlobalDataCarrier.Fuel = 400.0f;
+                GlobalData.GlobalDataCarrier.Fuel = 350.0f;
                 break;
             case (7):
                 SceneManager.LoadScene("Lander7");
@@ -247,11 +256,11 @@ public class TimeOut : MonoBehaviour
                 break;
             case (8):
                 SceneManager.LoadScene("Lander8");
-                GlobalData.GlobalDataCarrier.Fuel = 400.0f;
+                GlobalData.GlobalDataCarrier.Fuel = 800.0f;
                 break;
             case (9):
                 SceneManager.LoadScene("Lander9");
-                GlobalData.GlobalDataCarrier.Fuel = 650.0f;
+                GlobalData.GlobalDataCarrier.Fuel = 600.0f;
                 break;
             case (10):
                 SceneManager.LoadScene("Lander10");
@@ -288,7 +297,6 @@ public class TimeOut : MonoBehaviour
             if (GlobalData.GlobalDataCarrier.LandedStatus == false)
             {
                 GlobalData.GlobalDataCarrier.LandedStatus = true;
-                GlobalData.GlobalDataCarrier.Score += 10000;
                 GlobalData.GlobalDataCarrier.LandedLeft = false;
                 GlobalData.GlobalDataCarrier.LandedRight = false;
                 Debug.Log(GlobalData.GlobalDataCarrier.Level);
@@ -297,15 +305,15 @@ public class TimeOut : MonoBehaviour
                 {
                     case (1):
                         SceneManager.LoadScene("Lander1");
-                        GlobalData.GlobalDataCarrier.Fuel = 550f;
+                        GlobalData.GlobalDataCarrier.Fuel = 1500.0f;
                         break;
                     case (2):
                         SceneManager.LoadScene("Lander2");
-                        GlobalData.GlobalDataCarrier.Fuel = 500f;
+                        GlobalData.GlobalDataCarrier.Fuel = 600.0f;
                         break;
                     case (3):
                         SceneManager.LoadScene("Lander3");
-                        GlobalData.GlobalDataCarrier.Fuel = 400.0f;
+                        GlobalData.GlobalDataCarrier.Fuel = 600.0f;
                         break;
                     case (4):
                         SceneManager.LoadScene("Lander4");
@@ -317,7 +325,7 @@ public class TimeOut : MonoBehaviour
                         break;
                     case (6):
                         SceneManager.LoadScene("Lander6");
-                        GlobalData.GlobalDataCarrier.Fuel = 400.0f;
+                        GlobalData.GlobalDataCarrier.Fuel = 350.0f;
                         break;
                     case (7):
                         SceneManager.LoadScene("Lander7");
@@ -325,11 +333,11 @@ public class TimeOut : MonoBehaviour
                         break;
                     case (8):
                         SceneManager.LoadScene("Lander8");
-                        GlobalData.GlobalDataCarrier.Fuel = 400.0f;
+                        GlobalData.GlobalDataCarrier.Fuel = 800.0f;
                         break;
                     case (9):
                         SceneManager.LoadScene("Lander9");
-                        GlobalData.GlobalDataCarrier.Fuel = 400.0f;
+                        GlobalData.GlobalDataCarrier.Fuel = 600.0f;
                         break;
                     case (10):
                         SceneManager.LoadScene("Lander10");

@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System;
+using Unity.VisualScripting;
 
 
 public class PlayerControl : MonoBehaviour
@@ -20,6 +21,13 @@ public class PlayerControl : MonoBehaviour
     public float Burner3 = 1.5f;
     public float Launch = 0f;
 
+    //Состояния нажатия кнопок
+    public  bool UPBotton;
+    public bool LeftBotton;
+    public bool RightBotton;
+    public GameObject PanelBotton;
+
+
     private int score;
     private Transform Co;
 
@@ -27,6 +35,7 @@ public class PlayerControl : MonoBehaviour
     public ParticleSystem ps2;
 
     public bool AndroidPushed;
+    public bool Mobile;
 
     public AudioSource RocketAudio;
     public AudioSource ThrustAudio;
@@ -39,17 +48,262 @@ public class PlayerControl : MonoBehaviour
         ThrustAudio = audios[1];
         GlobalData.GlobalDataCarrier.LandedStatus = false;
         GlobalData.GlobalDataCarrier.LandedStatusOk = false;
+        UpdateUI();
+
+
+        // Определяем текущую платформу
+        if (Application.isMobilePlatform)
+        {
+            Mobile = true;
+            PanelBotton.SetActive(true);
+        }
+        else
+        {
+            PanelBotton.SetActive(false);
+            Mobile = false;
+        }
     }
 
     void Update()
     {
-        Movement();
+        if (!Mobile && !GlobalData.GlobalDataCarrier.LandedStatusOk)
+        {
+            Movement();
+        }
+        else
+        {
+            if (UPBotton)
+            {
+                UpButtonPressed();
+            }
+            if (LeftBotton)
+            {
+                LeftButtonPressed();
+            }
+            if (RightBotton)
+            {
+                RightButtonPressed();
+            }
+            if (LeftBotton && UPBotton)
+            {
+                UpButtonPressed();
+            }
+            if (LeftBotton && UPBotton)
+            {
+                UpLeftButtonPressed();
+            }
+            if (RightBotton && UPBotton)
+            {
+                UpRightButtonPressed();
+            }
+            if (LeftBotton && RightBotton)
+            {
+                RightLeftButtonPressed();
+            }
+        }
         CheckCrashed();
         timeRemaining -= Time.deltaTime;
         if (Input.GetKey(KeyCode.Escape))
         {
             Application.Quit();
-            Debug.Log("Break");
+        }
+    }
+
+
+    //Это мы будем вызывать в инспекторе чтоб определять нажата ли кнопка или нет и от этого отключать и включать работу двигателей
+    public void UpBottonOn()
+    {
+        UPBotton = true;
+    }
+    public void UpBottonOff()
+    {
+        UPBotton = false;
+        UpdateFuelSpriteAndFuelConsumption();
+    }
+    //
+    public void LeftBottonOn()
+    {
+        LeftBotton = true;
+    }
+    public void LeftBottonOff()
+    {
+        LeftBotton = false;
+        UpdateFuelSpriteAndFuelConsumption();
+    }
+    //
+    public void RightBottonOn()
+    {
+        RightBotton = true;
+    }
+    public void RightBottonOff()
+    {
+        RightBotton = false;
+        UpdateFuelSpriteAndFuelConsumption();
+    }
+
+
+    void UpButtonPressed()
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        Activeforce = 0;
+        Activetorque = 0;
+
+        UpdateUI();
+        AndroidPushed = false;
+        if (GlobalData.GlobalDataCarrier.Fuel > 0)
+        {
+            AndroidPushed = true;
+            Activeforce = force;
+            PlayRocketAudio();
+
+            rb.AddForce(transform.up * Activeforce, ForceMode2D.Force);
+            rb.AddTorque(Activetorque, ForceMode2D.Force);
+
+            UpdateSpriteAndFuelConsumption();
+        }
+        else
+        {
+            UpdateFuelSpriteAndFuelConsumption();
+        }
+
+    }
+
+    void LeftButtonPressed()
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        Activeforce = 0;
+        Activetorque = 0;
+
+        UpdateUI();
+        AndroidPushed = false;
+
+        if (GlobalData.GlobalDataCarrier.Fuel > 0)
+        {
+            Activetorque = torque;
+            PlayThrustAudio();
+
+            rb.AddForce(transform.up * Activeforce, ForceMode2D.Force);
+            rb.AddTorque(Activetorque, ForceMode2D.Force);
+
+            UpdateSpriteAndFuelConsumption();
+        }
+        else
+        {
+            UpdateFuelSpriteAndFuelConsumption();
+        }
+    }
+
+    void RightButtonPressed()
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        Activeforce = 0;
+        Activetorque = 0;
+
+        UpdateUI();
+        AndroidPushed = false;
+
+        if (GlobalData.GlobalDataCarrier.Fuel > 0)
+        {
+            Activetorque = -torque;
+            PlayThrustAudio();
+
+            rb.AddForce(transform.up * Activeforce, ForceMode2D.Force);
+            rb.AddTorque(Activetorque, ForceMode2D.Force);
+
+            UpdateSpriteAndFuelConsumption();
+        }
+        else
+        {
+            UpdateFuelSpriteAndFuelConsumption();
+        }
+    }
+
+    void UpRightButtonPressed()
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        Activeforce = 0;
+        Activetorque = 0;
+
+        UpdateUI();
+        AndroidPushed = false;
+
+        if (GlobalData.GlobalDataCarrier.Fuel > 0)
+        {
+            AndroidPushed = true;
+            Activeforce = force;
+            PlayRocketAudio();
+            Activetorque = -torque;
+            PlayThrustAudio();
+
+            rb.AddForce(transform.up * Activeforce, ForceMode2D.Force);
+            rb.AddTorque(Activetorque, ForceMode2D.Force);
+
+            UpdateSpriteAndFuelConsumption();
+        }
+        else
+        {
+            UpdateFuelSpriteAndFuelConsumption();
+        }
+    }
+
+    void UpLeftButtonPressed()
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        Activeforce = 0;
+        Activetorque = 0;
+
+        UpdateUI();
+        AndroidPushed = false;
+
+        if (GlobalData.GlobalDataCarrier.Fuel > 0)
+        {
+            AndroidPushed = true;
+            Activeforce = force;
+            PlayRocketAudio();
+            Activetorque = torque;
+            PlayThrustAudio();
+
+            rb.AddForce(transform.up * Activeforce, ForceMode2D.Force);
+            rb.AddTorque(Activetorque, ForceMode2D.Force);
+
+            UpdateSpriteAndFuelConsumption();
+        }
+        else
+        {
+            UpdateFuelSpriteAndFuelConsumption();
+        }
+    }
+
+    void RightLeftButtonPressed()
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        Activeforce = 0;
+        Activetorque = 0;
+
+        UpdateUI();
+        AndroidPushed = false;
+
+        if (GlobalData.GlobalDataCarrier.Fuel > 0)
+        {
+            Activetorque = 0;
+            Activeforce = force * 2;
+            PlayRocketAudio();
+            PlayThrustAudio();
+
+            rb.AddForce(transform.up * Activeforce, ForceMode2D.Force);
+            rb.AddTorque(Activetorque, ForceMode2D.Force);
+
+            UpdateSpriteAndFuelConsumption();
+        }
+        else
+        {
+            UpdateFuelSpriteAndFuelConsumption();
         }
     }
 
