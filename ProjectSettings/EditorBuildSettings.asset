@@ -44,4 +44,23 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Lander/Scenes/Lander10.unity
     guid: 2d7f21c534a52b441a2a43af5162494c
+  - enabled: 1
+    path: Assets/Lander/Scenes/Lander11.unity
+    guid: f95ec85e2dcd7fc4ba22ddda6a33f18b
+  - enabled: 1
+    path: Assets/Lander/Scenes/Lander12.unity
+    guid: ac1e4d055949bf94596d720ea1cd5699
+  - enabled: 1
+    path: Assets/Lander/Scenes/Lander13.unity
+    guid: faffe275754883a4e9f538da1d031b45
+  - enabled: 1
+    path: Assets/Lander/Scenes/Lander14.unity
+    guid: 81b7c86cf7e5b1a4eb2c91d5f2884e81
+  - enabled: 1
+    path: Assets/Lander/Scenes/Lander15.unity
+    guid: ebe17d91e0b7c794fa2a6dd2f1ee9d5b
+  - enabled: 1
+    path: Assets/Lander/Scenes/Lander16.unity
+    guid: 72ad7a715d02a5c45bd7c92a223c23c0
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

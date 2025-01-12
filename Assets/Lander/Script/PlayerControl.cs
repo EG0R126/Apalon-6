@@ -64,9 +64,9 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if (!Mobile && !GlobalData.GlobalDataCarrier.LandedStatusOk)
+        if (!Mobile)
         {
             Movement();
         }

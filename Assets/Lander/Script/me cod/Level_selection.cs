@@ -185,6 +185,106 @@ public class LevelSelection : MonoBehaviour
                     image.sprite = sprites[0];
                 }
                 break;
+            case (11):
+                if (GlobalData.GlobalDataCarrier.Level == 11 || GlobalData.GlobalDataCarrier.Level >= 11)
+                {
+                    image.sprite = sprites[1];
+                }
+                else
+                {
+                    image.sprite = sprites[0];
+                }
+                break;
+            case (12):
+                if (GlobalData.GlobalDataCarrier.Level == 12 || GlobalData.GlobalDataCarrier.Level >= 12)
+                {
+                    image.sprite = sprites[1];
+                }
+                else
+                {
+                    image.sprite = sprites[0];
+                }
+                break;
+            case (13):
+                if (GlobalData.GlobalDataCarrier.Level == 13 || GlobalData.GlobalDataCarrier.Level >= 13)
+                {
+                    image.sprite = sprites[1];
+                }
+                else
+                {
+                    image.sprite = sprites[0];
+                }
+                break;
+            case (14):
+                if (GlobalData.GlobalDataCarrier.Level == 14 || GlobalData.GlobalDataCarrier.Level >= 14)
+                {
+                    image.sprite = sprites[1];
+                }
+                else
+                {
+                    image.sprite = sprites[0];
+                }
+                break;
+            case (15):
+                if (GlobalData.GlobalDataCarrier.Level == 15 || GlobalData.GlobalDataCarrier.Level >= 15)
+                {
+                    image.sprite = sprites[1];
+                }
+                else
+                {
+                    image.sprite = sprites[0];
+                }
+                break;
+            case (16):
+                if (GlobalData.GlobalDataCarrier.Level == 16 || GlobalData.GlobalDataCarrier.Level >= 16)
+                {
+                    image.sprite = sprites[1];
+                }
+                else
+                {
+                    image.sprite = sprites[0];
+                }
+                break;
+            case (17):
+                if (GlobalData.GlobalDataCarrier.Level == 17 || GlobalData.GlobalDataCarrier.Level >= 17)
+                {
+                    image.sprite = sprites[1];
+                }
+                else
+                {
+                    image.sprite = sprites[0];
+                }
+                break;
+            case (18):
+                if (GlobalData.GlobalDataCarrier.Level == 18 || GlobalData.GlobalDataCarrier.Level >= 18)
+                {
+                    image.sprite = sprites[1];
+                }
+                else
+                {
+                    image.sprite = sprites[0];
+                }
+                break;
+            case (19):
+                if (GlobalData.GlobalDataCarrier.Level == 19 || GlobalData.GlobalDataCarrier.Level >= 19)
+                {
+                    image.sprite = sprites[1];
+                }
+                else
+                {
+                    image.sprite = sprites[0];
+                }
+                break;
+            case (20):
+                if (GlobalData.GlobalDataCarrier.Level == 20 || GlobalData.GlobalDataCarrier.Level >= 20)
+                {
+                    image.sprite = sprites[1];
+                }
+                else
+                {
+                    image.sprite = sprites[0];
+                }
+                break;
         }
     }
     private void TaskOnClick()
@@ -312,11 +412,74 @@ public class LevelSelection : MonoBehaviour
                 }
                 break;
 
-            //fault:
-                // Обновляем сохранение на текущий уровень
-        
-                //SceneManager.LoadScene("Lander10");
-    }
+            case (11):
+                if (GlobalData.GlobalDataCarrier.Level == 11 || GlobalData.GlobalDataCarrier.Level >= 11)
+                {
+                    GlobalData.GlobalDataCarrier.FirstRun = true;
+                    GlobalData.GlobalDataCarrier.Score = 0;
+                    GlobalData.GlobalDataCarrier.Fuel = 1500.0f;
+                    GlobalData.GlobalDataCarrier.LandedStatus = false;
+                    GlobalData.GlobalDataCarrier.LandedStatusOk = false;
+                    SceneManager.LoadScene("Lander11");
+                }
+                break;
+            case (12):
+                if (GlobalData.GlobalDataCarrier.Level == 12 || GlobalData.GlobalDataCarrier.Level >= 12)
+                {
+                    GlobalData.GlobalDataCarrier.FirstRun = true;
+                    GlobalData.GlobalDataCarrier.Score = 0;
+                    GlobalData.GlobalDataCarrier.Fuel = 2000.0f;
+                    GlobalData.GlobalDataCarrier.LandedStatus = false;
+                    GlobalData.GlobalDataCarrier.LandedStatusOk = false;
+                    SceneManager.LoadScene("Lander12");
+                }
+                break;
+            case (13):
+                if (GlobalData.GlobalDataCarrier.Level == 13 || GlobalData.GlobalDataCarrier.Level >= 13)
+                {
+                    GlobalData.GlobalDataCarrier.FirstRun = true;
+                    GlobalData.GlobalDataCarrier.Score = 0;
+                    GlobalData.GlobalDataCarrier.Fuel = 2000.0f;
+                    GlobalData.GlobalDataCarrier.LandedStatus = false;
+                    GlobalData.GlobalDataCarrier.LandedStatusOk = false;
+                    SceneManager.LoadScene("Lander13");
+                }
+                break;
+            case (14):
+                if (GlobalData.GlobalDataCarrier.Level == 14 || GlobalData.GlobalDataCarrier.Level >= 14)
+                {
+                    GlobalData.GlobalDataCarrier.FirstRun = true;
+                    GlobalData.GlobalDataCarrier.Score = 0;
+                    GlobalData.GlobalDataCarrier.Fuel = 3000.0f;
+                    GlobalData.GlobalDataCarrier.LandedStatus = false;
+                    GlobalData.GlobalDataCarrier.LandedStatusOk = false;
+                    SceneManager.LoadScene("Lander14");
+                }
+                break;
+            case (15):
+                if (GlobalData.GlobalDataCarrier.Level == 15 || GlobalData.GlobalDataCarrier.Level >= 15)
+                {
+                    GlobalData.GlobalDataCarrier.FirstRun = true;
+                    GlobalData.GlobalDataCarrier.Score = 0;
+                    GlobalData.GlobalDataCarrier.Fuel = 2500.0f;
+                    GlobalData.GlobalDataCarrier.LandedStatus = false;
+                    GlobalData.GlobalDataCarrier.LandedStatusOk = false;
+                    SceneManager.LoadScene("Lander15");
+
+                }
+                break;
+            case (16):
+                if (GlobalData.GlobalDataCarrier.Level == 16 || GlobalData.GlobalDataCarrier.Level >= 16)
+                {
+                    GlobalData.GlobalDataCarrier.FirstRun = true;
+                    GlobalData.GlobalDataCarrier.Score = 0;
+                    GlobalData.GlobalDataCarrier.Fuel = 1500.0f;
+                    GlobalData.GlobalDataCarrier.LandedStatus = false;
+                    GlobalData.GlobalDataCarrier.LandedStatusOk = false;
+                    SceneManager.LoadScene("Lander16");
+                }
+                break;
+        }
     }
 
 }

@@ -9,6 +9,8 @@ TagManager:
   - ButtonSound
   - Background
   - Sound_off_on
+  - Ground
+  - Legs
   layers:
   - Default
   - TransparentFX
@@ -20,8 +22,8 @@ TagManager:
   - 
   - Ground Soft
   - Ground Hard
-  - 
-  - 
+  - Legs
+  - Legs2
   - 
   - 
   - 

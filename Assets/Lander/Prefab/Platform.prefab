@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4321517261081264234}
   - component: {fileID: 8022742926713908430}
   - component: {fileID: 931408769375728176}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Point light Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,9 +42,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3087361571166358018}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 0.5974239, g: 0.6603774, b: 0.19001423, a: 1}
   m_Intensity: 9.2
   m_Range: 0.4
@@ -94,8 +93,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!114 &8022742926713908430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,7 +140,8 @@ GameObject:
   - component: {fileID: 1498059192039621054}
   - component: {fileID: 2775150768365023949}
   - component: {fileID: 1602868061580383469}
-  m_Layer: 0
+  - component: {fileID: 3800697325646953820}
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -153,8 +157,8 @@ Transform:
   m_GameObject: {fileID: 5550265279265478767}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.862, y: -2.764, z: 0}
-  m_LocalScale: {x: 0.14776236, y: 0.14582762, z: 0}
+  m_LocalPosition: {x: 40.87, y: -78.57, z: -13.18}
+  m_LocalScale: {x: 0.22301772, y: 0.24894233, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1081464837845807997}
@@ -178,6 +182,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -201,7 +208,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 16
   m_Sprite: {fileID: 21300000, guid: 54778990967e41241bd05bd4576db6c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -215,7 +222,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!50 &1498059192039621054
 Rigidbody2D:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -226,8 +233,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -248,6 +255,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5550265279265478767}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 642f201e4588b834dba927b4be542c57, type: 2}
   m_IncludeLayers:
@@ -271,8 +279,9 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.033683777, y: -0.11026621}
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.033681393, y: 1.0799646}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -282,8 +291,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6.663043, y: 5.887086}
+  m_Size: {x: 7.3273487, y: 3.5066242}
   m_EdgeRadius: 0
 --- !u!210 &1602868061580383469
 SortingGroup:
@@ -295,8 +303,28 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3
   m_SortAtRoot: 0
+--- !u!114 &3800697325646953820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5550265279265478767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b1dac452bbe2aa4290a73c579ce3a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  img: {fileID: 0}
+  target: {fileID: 3076220318505188494}
+  referenceObject: {fileID: 0}
+  cam: {fileID: 0}
+  minSize: 0.5
+  maxSize: 1
+  minDistance: 1
+  maxDistance: 10
 --- !u!1 &7486125513148872718
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +337,7 @@ GameObject:
   - component: {fileID: 1082978256088412506}
   - component: {fileID: 8293194070019545365}
   - component: {fileID: 8630976165127297364}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Point light Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,9 +367,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7486125513148872718}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 0, g: 0.884, b: 0.048275948, a: 1}
   m_Intensity: 9.2
   m_Range: 0.4
@@ -391,8 +418,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!114 &8293194070019545365
 MonoBehaviour:
   m_ObjectHideFlags: 0

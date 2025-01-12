@@ -4975,9 +4975,9 @@ GameObject:
   - component: {fileID: 1399053909648150123}
   - component: {fileID: 2495913715955496766}
   - component: {fileID: 4406493034317153160}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LowerGearRight
-  m_TagString: Untagged
+  m_TagString: Legs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5153,14 +5153,14 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2871
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -5310,9 +5310,9 @@ GameObject:
   - component: {fileID: 4088108363663276451}
   - component: {fileID: 3991888537308746968}
   - component: {fileID: 7991270107846603596}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UpperGearLeft
-  m_TagString: Untagged
+  m_TagString: Legs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5458,14 +5458,14 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1847
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -5501,9 +5501,9 @@ GameObject:
   - component: {fileID: 4372783427560684437}
   - component: {fileID: 5250200098714032121}
   - component: {fileID: 1009558621670378225}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UpperGearRight
-  m_TagString: Untagged
+  m_TagString: Legs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5649,14 +5649,14 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1847
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -5694,7 +5694,6 @@ GameObject:
   - component: {fileID: 802931608359712498}
   - component: {fileID: 7896680592461812331}
   - component: {fileID: 4418887630113520285}
-  - component: {fileID: 9200832805188407844}
   - component: {fileID: 730991843421703870}
   - component: {fileID: 7498886426651250541}
   - component: {fileID: 5009487130420698672}
@@ -6029,7 +6028,6 @@ MonoBehaviour:
   Activetorque: 0
   timeRemaining: 300
   FuelText: {fileID: 0}
-  ScoreText: {fileID: 0}
   TimeText: {fileID: 0}
   VelocityText: {fileID: 0}
   LevelText: {fileID: 0}
@@ -6037,9 +6035,14 @@ MonoBehaviour:
   Burner2: 0.5
   Burner3: 0.5
   Launch: 0
+  UPBotton: 0
+  LeftBotton: 0
+  RightBotton: 0
+  PanelBotton: {fileID: 0}
   ps: {fileID: 3731997561397912734}
   ps2: {fileID: 1365407855407075222}
   AndroidPushed: 1
+  Mobile: 0
   RocketAudio: {fileID: 4863953882706424603}
   ThrustAudio: {fileID: 4863953882706424603}
   LanderSprites:
@@ -6071,19 +6074,6 @@ MonoBehaviour:
   CrashVoice: {fileID: 7498886426651250541}
   LostVoice: {fileID: 1172158109771956821}
   Break: {fileID: 5068788334024117894}
---- !u!114 &9200832805188407844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5332050483408769441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95ec3156ca6d38a448233064a9b2b837, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScoreText: {fileID: 0}
 --- !u!82 &730991843421703870
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6735,9 +6725,9 @@ GameObject:
   - component: {fileID: 7510318579976644476}
   - component: {fileID: 7214661978508184297}
   - component: {fileID: 822694015888764943}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LowerGearLeft
-  m_TagString: Untagged
+  m_TagString: Legs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6913,14 +6903,14 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2871
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -7394,7 +7384,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.92941177, b: 0, a: 1}
+      maxColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -7774,7 +7764,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    gravitySource: 0
+    gravitySource: 1
     maxNumParticles: 1000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
@@ -8595,15 +8585,15 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.93333334, g: 0.93333334, b: 0.93333334, a: 0.24313726}
-        key1: {r: 1, g: 0, b: 0, a: 1}
+        key0: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}
+        key1: {r: 0.93333334, g: 0.93333334, b: 0.93333334, a: 0.24313726}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
-        ctime0: 0
+        ctime0: 22937
         ctime1: 65535
         ctime2: 0
         ctime3: 0
@@ -8611,7 +8601,7 @@ ParticleSystem:
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 0
+        atime0: 13878
         atime1: 65535
         atime2: 0
         atime3: 0
@@ -8620,7 +8610,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
+        m_ColorSpace: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -11081,11 +11071,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     minKillSpeed: 0
-    maxKillSpeed: 10000
+    maxKillSpeed: 1000
     radiusScale: 0.18
     collidesWith:
       serializedVersion: 2
-      m_Bits: 256
+      m_Bits: 823
     maxCollisionShapes: 512
     quality: 0
     voxelSize: 0.5

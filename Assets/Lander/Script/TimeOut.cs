@@ -24,12 +24,12 @@ public class TimeOut : MonoBehaviour
     private string fileName = "level.txt";
 
     public GameObject panel;
-    public GameObject Restart_button;
+    public GameObject Restart_button; 
     public GameObject Manu_button;
 
 
     // Use this for initialization
-
+    
 
 
 
@@ -266,6 +266,30 @@ public class TimeOut : MonoBehaviour
                 SceneManager.LoadScene("Lander10");
                 GlobalData.GlobalDataCarrier.Fuel = 400.0f;
                 break;
+            case (11):
+                SceneManager.LoadScene("Lander11");
+                GlobalData.GlobalDataCarrier.Fuel = 1500.0f;
+                break;
+            case (12):
+                SceneManager.LoadScene("Lander12");
+                GlobalData.GlobalDataCarrier.Fuel = 2000.0f;
+                break;
+            case (13):
+                SceneManager.LoadScene("Lander13");
+                GlobalData.GlobalDataCarrier.Fuel = 3000.0f;
+                break;
+            case (14):
+                SceneManager.LoadScene("Lander14");
+                GlobalData.GlobalDataCarrier.Fuel = 2000.0f;
+                break;
+            case (15):
+                SceneManager.LoadScene("Lander15");
+                GlobalData.GlobalDataCarrier.Fuel = 2500.0f;
+                break;
+            case (16):
+                SceneManager.LoadScene("Lander16");
+                GlobalData.GlobalDataCarrier.Fuel = 1500.0f;
+                break;
         }
 
         //Поменять логику для каждого уровння должно быть своё кол-во топлива
@@ -343,6 +367,31 @@ public class TimeOut : MonoBehaviour
                         SceneManager.LoadScene("Lander10");
                         GlobalData.GlobalDataCarrier.Fuel = 400.0f;
                         break;
+                    case (11):
+                        SceneManager.LoadScene("Lander11");
+                        GlobalData.GlobalDataCarrier.Fuel = 1500.0f;
+                        break;
+                    case (12):
+                        SceneManager.LoadScene("Lander12");
+                        GlobalData.GlobalDataCarrier.Fuel = 2000.0f;
+                        break;
+                    case (13):
+                        SceneManager.LoadScene("Lander13");
+                        GlobalData.GlobalDataCarrier.Fuel = 3000.0f;
+                        break;
+                    case (14):
+                        SceneManager.LoadScene("Lander14");
+                        GlobalData.GlobalDataCarrier.Fuel = 3000.0f;
+                        break;
+                    case (15):
+                        SceneManager.LoadScene("Lander15");
+                        GlobalData.GlobalDataCarrier.Fuel = 2500.0f;
+                        break;
+                    case (16):
+                        SceneManager.LoadScene("Lander16");
+                        GlobalData.GlobalDataCarrier.Fuel = 1500.0f;
+                        break;
+
                 }
 
             }

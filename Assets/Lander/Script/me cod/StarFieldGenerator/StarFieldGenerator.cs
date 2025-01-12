@@ -49,7 +49,7 @@ public class StarFieldGenerator : MonoBehaviour
     {
         float x = Random.Range(boxCollider.bounds.min.x, boxCollider.bounds.max.x);
         float y = Random.Range(boxCollider.bounds.min.y, boxCollider.bounds.max.y);
-        float Z = 1f;
+        float Z = 10f;
         return new Vector3(x, y, Z);
     }
 }
