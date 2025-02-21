@@ -11,21 +11,23 @@ public class SoundPlayer : MonoBehaviour
     public AudioClip correctSound;
     public AudioClip[] randomSounds; // Массив случайных звуков
     public float fadeDuration = 1f; // Длительность затухания и появления звука
-    public int Time;
+    public int time; // Переименовали переменную, чтобы избежать конфликта
 
+    private string previousScene; // Переменная для хранения предыдущей сцены
+    private float targetVolume = 1f; // Целевая громкость
 
     private void Awake()
     {
-            // Make sure only one instance of this script exists
-            if (instance == null)
-            {
-                instance = this;
-                DontDestroyOnLoad(gameObject); // Don't destroy the object when loading a new scene
-            }
-            else
-            {
-                Destroy(gameObject); // Destroy script duplicates
-            }
+        // Make sure only one instance of this script exists
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject); // Don't destroy the object when loading a new scene
+        }
+        else
+        {
+            Destroy(gameObject); // Destroy script duplicates
+        }
     }
 
     private void Start()
@@ -36,11 +38,17 @@ public class SoundPlayer : MonoBehaviour
 
     private void Update()
     {
-            // Проверяем, если сцена изменилась
-            if (SceneManager.GetActiveScene().name != previousScene)
-            {
-                UpdateSound();
-            }
+        // Проверяем, если сцена изменилась
+        if (SceneManager.GetActiveScene().name != previousScene)
+        {
+            UpdateSound();
+        }
+
+        // Плавное изменение громкости
+        if (audioSource.volume != targetVolume)
+        {
+            audioSource.volume = Mathf.MoveTowards(audioSource.volume, targetVolume, UnityEngine.Time.deltaTime / fadeDuration);
+        }
     }
 
     public void Sound_off_on()
@@ -57,53 +65,63 @@ public class SoundPlayer : MonoBehaviour
         }
     }
 
-    private string previousScene; // Переменная для хранения предыдущей сцены
-
     private void UpdateSound()
     {
-            // Сохраняем текущую сцену
-            previousScene = SceneManager.GetActiveScene().name;
+        // Сохраняем текущую сцену
+        previousScene = SceneManager.GetActiveScene().name;
 
-            // Проверяем текущую активную сцену
-            if (previousScene == "Manu_Scene" || previousScene == "StartScene")
+        // Проверяем текущую активную сцену
+        if (previousScene == "Manu_Scene" || previousScene == "StartScene")
+        {
+            if (!audioSource.isPlaying)
             {
-                if (!audioSource.isPlaying)
-                {
-                    StartCoroutine(FadeInMusic(correctSound));
-                }
+                StartCoroutine(FadeInMusic(correctSound));
+            }
+            targetVolume = 1f; // Возвращаем громкость к 1
+        }
+        else
+        {
+            if (previousScene == "Lander19")
+            {
+                targetVolume = 0.25f; // Устанавливаем громкость на 0.25
+                Debug.Log("Громкость снижена до 0.25");
             }
             else
             {
-                // Если не "Manu_Scene" или "StartScene", выбираем случайный звук из массива
-                StartCoroutine(FadeInMusic(randomSounds[Random.Range(0, randomSounds.Length)]));
+                targetVolume = 1f; // Возвращаем громкость к 1
+                Debug.Log("Громкость восстановлена до 1");
             }
+
+            // Если не "Manu_Scene" или "StartScene", выбираем случайный звук из массива
+            StartCoroutine(FadeInMusic(randomSounds[Random.Range(0, randomSounds.Length)]));
+        }
     }
 
     private IEnumerator FadeInMusic(AudioClip clip)
     {
-            // Постепенное включение музыки
-            audioSource.clip = clip;
-            audioSource.Play();
-            while (audioSource.volume < 1)
-            {
-                audioSource.volume += UnityEngine.Time.deltaTime / fadeDuration;
-                yield return null;
-            }
+        // Постепенное включение музыки
+        audioSource.clip = clip;
+        audioSource.Play();
+        while (audioSource.volume < targetVolume)
+        {
+            audioSource.volume += UnityEngine.Time.deltaTime / fadeDuration;
+            yield return null;
+        }
     }
 
     private IEnumerator FadeOutMusic()
     {
-            // Постепенное выключение музыки
-            while (audioSource.volume > 0)
-            {
-                audioSource.volume -= UnityEngine.Time.deltaTime / fadeDuration;
-                yield return null;
-            }
-            audioSource.Stop();
+        // Постепенное выключение музыки
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= UnityEngine.Time.deltaTime / fadeDuration;
+            yield return null;
+        }
+        audioSource.Stop();
     }
 
     public void PlaySound()
     {
-            StartCoroutine(FadeOutMusic());
+        StartCoroutine(FadeOutMusic());
     }
 }

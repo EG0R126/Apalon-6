@@ -290,6 +290,22 @@ public class TimeOut : MonoBehaviour
                 SceneManager.LoadScene("Lander16");
                 GlobalData.GlobalDataCarrier.Fuel = 1500.0f;
                 break;
+            case (17):
+                SceneManager.LoadScene("Lander17");
+                GlobalData.GlobalDataCarrier.Fuel = 3000.0f;
+                break;
+            case (18):
+                SceneManager.LoadScene("Lander18");
+                GlobalData.GlobalDataCarrier.Fuel = 3000.0f;
+                break;
+            case (19):
+                SceneManager.LoadScene("Lander19");
+                GlobalData.GlobalDataCarrier.Fuel = 8000.0f;
+                break;
+            case (20):
+                SceneManager.LoadScene("Lander20");
+                GlobalData.GlobalDataCarrier.Fuel = 10000.0f;
+                break;
         }
 
         //Поменять логику для каждого уровння должно быть своё кол-во топлива
@@ -390,6 +406,22 @@ public class TimeOut : MonoBehaviour
                     case (16):
                         SceneManager.LoadScene("Lander16");
                         GlobalData.GlobalDataCarrier.Fuel = 1500.0f;
+                        break;
+                    case (17):
+                        SceneManager.LoadScene("Lander17");
+                        GlobalData.GlobalDataCarrier.Fuel = 3000.0f;
+                        break;
+                    case (18):
+                        SceneManager.LoadScene("Lander18");
+                        GlobalData.GlobalDataCarrier.Fuel = 3500.0f;
+                        break;
+                    case (19):
+                        SceneManager.LoadScene("Lander19");
+                        GlobalData.GlobalDataCarrier.Fuel = 8000.0f;
+                        break;
+                    case (20):
+                        SceneManager.LoadScene("Lander20");
+                        GlobalData.GlobalDataCarrier.Fuel = 10000.0f;
                         break;
 
                 }

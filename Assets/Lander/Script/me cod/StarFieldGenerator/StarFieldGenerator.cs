@@ -8,16 +8,11 @@ public class StarFieldGenerator : MonoBehaviour
     public int initialStarCount = 100; // Начальное количество звезд
     public float twinkleProbability = 0.5f; // Вероятность мерцания звезды
 
-    public BoxCollider2D boxCollider;
+    private BoxCollider2D boxCollider;
 
     void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
-        if (boxCollider == null)
-        {
-            Debug.LogError("BoxCollider2D not found on the GameObject. Please add a BoxCollider2D component.");
-            return;
-        }
 
         for (int i = 0; i < initialStarCount; i++)
         {
@@ -27,7 +22,7 @@ public class StarFieldGenerator : MonoBehaviour
 
     void CreateStar()
     {
-        Vector2 position = GetRandomPositionInBoxCollider();
+        Vector3 position = GetRandomPositionInBoxCollider();
         GameObject newStar = Instantiate(starPrefab, position, Quaternion.identity, transform);
 
         // Случайный размер и яркость
@@ -45,11 +40,11 @@ public class StarFieldGenerator : MonoBehaviour
         }
     }
 
-    Vector2 GetRandomPositionInBoxCollider()
+    Vector3 GetRandomPositionInBoxCollider()
     {
         float x = Random.Range(boxCollider.bounds.min.x, boxCollider.bounds.max.x);
         float y = Random.Range(boxCollider.bounds.min.y, boxCollider.bounds.max.y);
-        float Z = 10f;
-        return new Vector3(x, y, Z);
+        float z = 50f;
+        return new Vector3(x, y, z);
     }
 }

@@ -439,7 +439,7 @@ public class LevelSelection : MonoBehaviour
                 {
                     GlobalData.GlobalDataCarrier.FirstRun = true;
                     GlobalData.GlobalDataCarrier.Score = 0;
-                    GlobalData.GlobalDataCarrier.Fuel = 2000.0f;
+                    GlobalData.GlobalDataCarrier.Fuel = 3000.0f;
                     GlobalData.GlobalDataCarrier.LandedStatus = false;
                     GlobalData.GlobalDataCarrier.LandedStatusOk = false;
                     SceneManager.LoadScene("Lander13");
@@ -477,6 +477,50 @@ public class LevelSelection : MonoBehaviour
                     GlobalData.GlobalDataCarrier.LandedStatus = false;
                     GlobalData.GlobalDataCarrier.LandedStatusOk = false;
                     SceneManager.LoadScene("Lander16");
+                }
+                break;
+            case (17):
+                if (GlobalData.GlobalDataCarrier.Level == 17 || GlobalData.GlobalDataCarrier.Level >= 17)
+                {
+                    GlobalData.GlobalDataCarrier.FirstRun = true;
+                    GlobalData.GlobalDataCarrier.Score = 0;
+                    GlobalData.GlobalDataCarrier.Fuel = 3000.0f;
+                    GlobalData.GlobalDataCarrier.LandedStatus = false;
+                    GlobalData.GlobalDataCarrier.LandedStatusOk = false;
+                    SceneManager.LoadScene("Lander17");
+                }
+                break;
+            case (18):
+                if (GlobalData.GlobalDataCarrier.Level == 18 || GlobalData.GlobalDataCarrier.Level >= 18)
+                {
+                    GlobalData.GlobalDataCarrier.FirstRun = true;
+                    GlobalData.GlobalDataCarrier.Score = 0;
+                    GlobalData.GlobalDataCarrier.Fuel = 3500.0f;
+                    GlobalData.GlobalDataCarrier.LandedStatus = false;
+                    GlobalData.GlobalDataCarrier.LandedStatusOk = false;
+                    SceneManager.LoadScene("Lander18");
+                }
+                break;
+            case (19):
+                if (GlobalData.GlobalDataCarrier.Level == 19 || GlobalData.GlobalDataCarrier.Level >= 19)
+                {
+                    GlobalData.GlobalDataCarrier.FirstRun = true;
+                    GlobalData.GlobalDataCarrier.Score = 0;
+                    GlobalData.GlobalDataCarrier.Fuel = 8000.0f;
+                    GlobalData.GlobalDataCarrier.LandedStatus = false;
+                    GlobalData.GlobalDataCarrier.LandedStatusOk = false;
+                    SceneManager.LoadScene("Lander19");
+                }
+                break;
+            case (20):
+                if (GlobalData.GlobalDataCarrier.Level == 20 || GlobalData.GlobalDataCarrier.Level >= 20)
+                {
+                    GlobalData.GlobalDataCarrier.FirstRun = true;
+                    GlobalData.GlobalDataCarrier.Score = 0;
+                    GlobalData.GlobalDataCarrier.Fuel = 10000.0f;
+                    GlobalData.GlobalDataCarrier.LandedStatus = false;
+                    GlobalData.GlobalDataCarrier.LandedStatusOk = false;
+                    SceneManager.LoadScene("Lander20");
                 }
                 break;
         }

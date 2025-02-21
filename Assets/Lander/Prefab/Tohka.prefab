@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8670709158193384489}
   - component: {fileID: 3262221790475796264}
+  - component: {fileID: 2862418200652099474}
   m_Layer: 0
   m_Name: Tohka
   m_TagString: Untagged
@@ -55,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,3 +88,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!210 &2862418200652099474
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4929960727261311470}
+  m_Enabled: 1
+  m_SortingLayerID: -358291261
+  m_SortingLayer: -4
+  m_SortingOrder: -13
+  m_SortAtRoot: 1
